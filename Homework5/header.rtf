@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue0;\red0\green0\blue255;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c50200\c0;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c0\c100000;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab543
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 //\cf3 \
+\cf2 //  triangle.h\cf3 \
+\cf2 //  homework5\cf3 \
+\cf2 //\cf3 \
+\cf2 //  Created by Jaryd Remillard on 2/20/17.\cf3 \
+\cf2 //  Copyright \'a9 2017 Remillard Tech. All rights reserved.\cf3 \
+\cf2 //\cf3 \
+\cf2 //\cf3 \
+\
+\cf2 /*\
+ a triangle class that is capable of analyzing and outputting information\
+ regarding sides of the triangle\
+*/\cf3 \
+\cf4 class\cf3  Triangle \{\
+\cf4 public\cf3 :\
+    \cf2 // create triangle object\cf3 \
+    Triangle();\
+    \
+    \cf2 // construct object parameters\cf3 \
+    Triangle(\cf4 double\cf3  A, \cf4 double\cf3  B, \cf4 double\cf3  C);\
+    \
+    \cf2 // input sides of the triangle, and return true if the sides follow the pythagorean theorem\cf3 \
+    \cf2 // of c^2 = a^2 + b^2. It will return false if it does not follow the theorem\cf3 \
+    \cf4 bool\cf3  isRightTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3 ;\
+    \
+    \cf2 // input sides of the triangle, will return true if all sides are equal\cf3 \
+    \cf2 // will return false if all sides do not equal each other\cf3 \
+    \cf4 bool\cf3  isEquilateralTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3 ;\
+    \
+    \cf2 // input sides of the triangle, will return true if two of the sides equal\cf3 \
+    \cf2 // each other, but differ from the last side. Will return false if\cf3 \
+    \cf2 // two sides don't equal and differ from the last side\cf3 \
+    \cf4 bool\cf3  isIsoscelesTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3 ;\
+    \
+    \cf2 // find the area of the inputted triangle sides by using Herons formula of\cf3 \
+    \cf2 // Area = sqrt((s * (s - a)) * (s * (s - b)) * (s * (s - c))) where s = (a + b + c)/2\cf3 \
+    \cf2 // and return double value\cf3 \
+    \cf4 double\cf3  TriangleArea(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3 ;\
+    \
+    \cf2 // return value of side length of A\cf3 \
+    \cf4 double\cf3  getSideA() \cf4 const\cf3 ;\
+    \
+    \cf2 // return value of side length of B\cf3 \
+    \cf4 double\cf3  getSideB() \cf4 const\cf3 ;\
+    \
+    \cf2 // return value of side length C\cf3 \
+    \cf4 double\cf3  getSideC() \cf4 const\cf3 ;\
+    \
+\cf4 private\cf3 :\
+    \cf4 double\cf3  SideA;\
+    \cf4 double\cf3  SideB;\
+    \cf4 double\cf3  SideC;\
+\};\
+}

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+g++ -o run lab3_remillardj.cpp
+./run

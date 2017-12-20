@@ -1,0 +1,89 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue0;\red0\green0\blue255;
+\red163\green21\blue21;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c50200\c0;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c0\c100000;
+\csgenericrgb\c63900\c8200\c8200;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab543
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 //\cf3 \
+\cf2 //  triangle.cpp\cf3 \
+\cf2 //  homework5\cf3 \
+\cf2 //\cf3 \
+\cf2 //  Created by Jaryd Remillard on 2/20/17.\cf3 \
+\cf2 //  Copyright \'a9 2017 Remillard Tech. All rights reserved.\cf3 \
+\cf2 //\cf3 \
+\
+\cf4 #include \cf5 <cmath>\cf4 \
+#include \cf5 <iostream>\cf4 \
+using\cf3  \cf4 namespace\cf3  std;\
+\cf4 #include \cf5 "triangle.h"\cf4 \
+\cf3 \
+Triangle::Triangle()\
+\{\
+    SideA = 3;\
+    SideB = 4;\
+    SideC = 5;\
+\}\
+\
+Triangle::Triangle(\cf4 double\cf3  A, \cf4 double\cf3  B, \cf4 double\cf3  C) \{\
+    \cf4 if\cf3  ((((A + B) < C) && ((A + C) < B) && ((B + C) < A)) || ((A <= 0 ) || (B <= 0) || (C <= 0))) \{\
+        cout << \cf5 "Triangle constructor("\cf3  << A << \cf5 ", "\cf3  << B << \cf5 ", "\cf3  << C << \cf5 ") illegal - setting to default values [3, 4, 5]"\cf3  << endl;\
+        SideA = 3;\
+        SideB = 4;\
+        SideC = 5;\
+    \} \cf4 else\cf3  \{\
+        SideA = A;\
+        SideB = B;\
+        SideC = C;\
+    \}\
+\}\
+\
+\cf4 double\cf3  Triangle::getSideA() \cf4 const\cf3  \{\
+    \cf4 return\cf3  SideA;\
+\}\
+\
+\cf4 double\cf3  Triangle::getSideB() \cf4 const\cf3  \{\
+    \cf4 return\cf3  SideB;\
+\}\
+\
+\cf4 double\cf3  Triangle::getSideC() \cf4 const\cf3  \{\
+    \cf4 return\cf3  SideC;\
+\}\
+\
+\cf4 bool\cf3  Triangle::isRightTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3  \{\
+    \cf4 if\cf3  (pow(C, 2) == pow(A, 2) + pow(B, 2)) \{\
+        \cf4 return\cf3  \cf4 true\cf3 ;\
+    \} \cf4 else\cf3  \cf4 return\cf3  \cf4 false\cf3 ;\
+\}\
+\
+\cf4 bool\cf3  Triangle::isEquilateralTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3  \{\
+    \cf4 if\cf3  (A == B && A == C && B == C) \{\
+        \cf4 return\cf3  \cf4 true\cf3 ;\
+    \} \cf4 else\cf3  \cf4 return\cf3  \cf4 false\cf3 ;\
+\}\
+\
+\cf4 bool\cf3  Triangle::isIsoscelesTriangle(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3  \{\
+    \cf4 if\cf3  (A == B && A != C) \{\
+        \cf4 return\cf3  \cf4 true\cf3 ;\
+    \} \cf4 else\cf3  \cf4 if\cf3  (A == C && A != B) \{\
+        \cf4 return\cf3  \cf4 true\cf3 ;\
+    \} \cf4 else\cf3  \cf4 if\cf3  (B == C && B != A) \{\
+        \cf4 return\cf3  \cf4 true\cf3 ;\
+    \} \cf4 else\cf3  \cf4 return\cf3  \cf4 false\cf3 ;\
+\}\
+\
+\cf4 double\cf3  Triangle::TriangleArea(\cf4 const\cf3  \cf4 double\cf3  A, \cf4 const\cf3  \cf4 double\cf3  B, \cf4 const\cf3  \cf4 double\cf3  C) \cf4 const\cf3  \{\
+    \cf2 //p = (A + B + C)/2\cf3 \
+    \cf2 // herons formula: Area = sqrt((s * (s - a)) * (s * (s - b)) * (s * (s - c)))\cf3 \
+    \cf4 double\cf3  permimeter = (A + B + C) / 2;\
+    \cf4 double\cf3  area;\
+    \cf4 return\cf3  area = sqrt(permimeter*(permimeter - A)*(permimeter - B)*(permimeter - C));\
+\}\
+\
+\
+\
+\
+}

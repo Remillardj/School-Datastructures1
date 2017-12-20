@@ -1,0 +1,96 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fmodern\fcharset0 CourierNewPSMT;}
+{\colortbl;\red255\green255\blue255;\red0\green128\blue0;\red0\green0\blue0;\red0\green0\blue255;
+\red163\green21\blue21;\red43\green131\blue159;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c50200\c0;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c0\c100000;
+\csgenericrgb\c63900\c8200\c8200;\csgenericrgb\c16900\c51200\c62500;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab543
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 //\cf3 \
+\cf2 //  main.cpp\cf3 \
+\cf2 //  Homework6\cf3 \
+\cf2 //\cf3 \
+\cf2 //  Created by Jaryd Remillard on 2/23/17.\cf3 \
+\cf2 //\cf3 \
+\
+\cf4 #include \cf5 <iostream>\cf4 \
+#include \cf5 "Time.h"\cf4 \
+\cf3 \
+\cf4 void\cf3  testoutputformats(\cf6 Time\cf3  &t);\
+\
+\cf4 int\cf3  main()\
+\{\
+    \cf6 Time\cf3  alarmTime(22, 50, 30);\
+    \
+    \cf6 string\cf3  alarmString;\
+    \
+    alarmString = alarmTime.\cf6 get24HourFormat\cf3 ();\
+    \cf6 cout\cf3  << alarmString << \cf6 endl\cf3 ; \cf2 //22:50:30 24hr\cf3 \
+    \
+    alarmString = alarmTime.\cf6 get12HourAmPmFormat\cf3 ();\
+    \cf6 cout\cf3  << alarmString << \cf6 endl\cf3 ; \cf2 // 10:50:30 PM 12hr\cf3 \
+    \
+    alarmTime.\cf6 incrementSeconds\cf3 (45);\
+    \cf6 testoutputformats\cf3 (alarmTime); \cf2 // 10:51:15 PM\cf3 \
+    \
+    alarmTime.\cf6 incrementSeconds\cf3 (200);\
+    \cf6 testoutputformats\cf3 (alarmTime); \cf2 // 10:54:35 PM\cf3 \
+    \
+    alarmTime.\cf6 incrementMinutes\cf3 (63);\
+    \cf6 testoutputformats\cf3 (alarmTime); \cf2 // 11:57:35 PM\cf3 \
+    \
+    alarmTime.\cf6 incrementHours\cf3 (24);\
+    \cf6 testoutputformats\cf3 (alarmTime); \cf2 // 11:57:35 PM\cf3 \
+    \
+    alarmTime.\cf6 incrementHours\cf3 (49);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime = \cf6 Time\cf3 (6, 30, 0);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime = \cf6 Time\cf3 (18, 30, 0);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime.\cf6 setHours\cf3 (2);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime.\cf6 setMinutes\cf3 (5);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime.\cf6 setSeconds\cf3 (65);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime.\cf6 setSeconds\cf3 (7261);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    alarmTime.\cf6 incrementMinutes\cf3 (-1);\
+    \cf6 testoutputformats\cf3 (alarmTime);\
+    \
+    \cf6 Time\cf3  myAppt(15, 0, 0);\
+    \cf6 testoutputformats\cf3 (myAppt);\
+    \cf6 cout\cf3  << myAppt.\cf6 getHours\cf3 () << \cf6 endl\cf3 ;\
+    \
+    \cf6 Time\cf3  rightNow;\
+    \cf6 testoutputformats\cf3 (rightNow);\
+    \
+    \cf6 Time\cf3  testTime(-15, 0, 0);\
+    \cf6 testoutputformats\cf3 (testTime);\
+    \
+    \cf4 return\cf3  0;\
+\}\
+\
+\cf2 /*\
+ automate process of printing out both 24 hour formats and 12 hour AM/PM format\
+*/\cf3 \
+\cf4 void\cf3  testoutputformats(Time &t)\
+\{\
+    \cf6 string\cf3  tmpString;\
+    \
+    tmpString = t.\cf6 get24HourFormat\cf3 ();\
+    \cf6 cout\cf3  << tmpString << \cf6 endl\cf3 ;\
+    \
+    tmpString = t.\cf6 get12HourAmPmFormat\cf3 ();\
+    \cf6 cout\cf3  << tmpString << \cf6 endl\cf3 ;\
+\}}
